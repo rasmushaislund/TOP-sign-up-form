@@ -8,6 +8,7 @@ body {
     background-image: url("./img/ian-dooley-DuBNA1QMpPA-unsplash-largemodified.jpg");
     background-attachment: fixed;
     background-size: cover;
+    overflow: scroll;
 }
 
 .para-author {
@@ -17,6 +18,7 @@ body {
 }
 
 .github-link {
+    font-family: 'Caveat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(90deg,
      rgba(214,123,3,1) 10%,
       rgba(214,141,3,1) 20%,
@@ -34,7 +36,7 @@ body {
 
 p {
     margin: 0;
-    color: rgba(255, 255, 255, 1)
+   
 }
 
 sup {
@@ -63,12 +65,14 @@ header {
 .freedom {
     font-family: 'Fredoka One', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3rem;
+    color: rgba(255, 255, 255, 1)
 }
 
 .travel {
     font-family: 'Fredoka', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
+    color: rgba(255, 255, 255, 1)
 }
 
 main {
@@ -82,17 +86,56 @@ main {
     flex-direction: column;
     align-items: center;
     background-color: rgba(255, 255, 255, .85);
-    padding: 10px;
-    border-radius: 10px;
-
+    padding: 30px;
+    border-radius: 5px;
+    min-width: 310px;
+    max-width: 720px;
 }
 
 li {
     list-style-type: none;
+    font-size: .75rem;
+    font-weight: 700;
 }
 
 ul {
-    column-count: 2;
+    column-gap: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+input {
+    appearance: none;
+    padding: 5px 5px;
+    min-width: 250px;
+    font-size: .75rem;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(228, 233, 224)
+}
+
+input, label {
+    display: block;
+}
+
+label {
+    margin-left: 2px;;
+}
+
+.create-account {
+    appearance: none;
+    margin: 0 0 10px 40px;
+    padding: 8px 30px;
+    border-radius: 5px;
+    background-color: rgb(5, 146, 175);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+}
+
+.existing-user {
+    text-align: left;
+    margin: 0 0 0 40px;
 }
 
 
