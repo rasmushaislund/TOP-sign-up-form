@@ -29,26 +29,32 @@
                     <li>
                         <label for="first-name">FIRST NAME<span class="asterisk" aria-label="required">*</span></label>
                         <input type="text" id="first-name" name="first_name" required>
+                        <p class="error-help" id="error-first-name"></p>
                     </li>
                     <li>
                         <label for="last-name">LAST NAME<span class="asterisk" aria-label="required">*</span></label>
                         <input type="text" id="last-name" name="last_name" required>
+                        <p class="error-help" id="error-last-name"></p>
                     </li>
                     <li>
                         <label for="email">E-MAIL<span class="asterisk" aria-label="required">*</span></label>
                         <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-](.)+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+).*$" required>
+                        <p class="error-help" id="error-email"></p>
                     </li>
                     <li>
                         <label for="telephone">PHONE NUMBER<span class="asterisk" aria-label="required">*</span></label>
                         <input type="tel" id="telephone" name="phone_number" placeholder="e.g. 87654321" inputmode="tel" pattern="[0-9]{8}" required>
+                        <p class="error-help" id="error-phone"></p>
                     </li>
                     <li>
                         <label for="password">PASSWORD<span class="asterisk" aria-label="required">*</span></label>
                         <input type="password" id="password" name="password" minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$" required>
+                        <p class="error-help" id="error-password"></p>
                     </li>
                     <li>
                         <label for="confirm-password">CONFIRM PASSWORD<span class="asterisk" aria-label="required">*</span></label>
                         <input type="password" id="confirm-password" name="confirm_password" required disabled>
+                        <p class="error-help" id="error-confirm-password"></p>
                     </li>
                     <li>
                         <button class="create-account" type="submit">CREATE ACCOUNT</button>
