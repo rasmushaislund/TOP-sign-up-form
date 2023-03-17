@@ -184,7 +184,7 @@ label, .error-help {
     padding: 8px 30px;
     margin: 20px 100px;
     border-radius: 5px;
-    box-shadow: 0 0 3px 1px rgb(5, 146, 175);
+    box-shadow: 0 0 2px 1px rgb(5, 146, 175);
     background-color: rgb(5, 146, 175);
     color: rgba(255, 255, 255, 1);
     font-weight: 700;
@@ -214,9 +214,3 @@ footer {
     padding: 10px;
     font-size: .8rem;
 }
-
-footer ~ a:link {
-    color: rgba(255, 255, 255, .85)
-}
-
-
