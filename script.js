@@ -53,6 +53,7 @@ password.addEventListener("input", enablePasswordConfirmation);
 let comparePassword = () => {
     if (confirmPassword.value === typedPassword && passwordValid === true) {
         confirmPassword.validity.valid = true;
+        errorConfirmPassword.textContent = "";
     } else {
         confirmPassword.validity.valid = false;
         errorConfirmPassword.textContent = "Passwords do not match"
