@@ -26,7 +26,8 @@ const errorConfirmPassword = document.querySelector("#error-confirm-password");
 // NON-DOM VARIABLES
 
 
-let typedPassword = password.value
+let typedPassword;
+let passwordValid = false;
 // let passwordValid = false;
 
 
@@ -34,9 +35,12 @@ let typedPassword = password.value
 
 let enablePasswordConfirmation = () => {
     if (password.validity.valid === true) {
+        typedPassword = password.value
+        passwordValid = true;
         confirmPassword.disabled = false;
-        confirmPassword.setAttribute("pattern", typedPassword);
+        confirmPassword.pattern = typedPassword;
     } else {
+        passwordValid = false;
         confirmPassword.disabled = true;
     }
 }
@@ -46,11 +50,14 @@ password.addEventListener("change", enablePasswordConfirmation);
 
 // password confirmation
 
-let comparePassword = (typedPassword) => {
-    if (passwordValid === true && typedPassword === confirmPassword.value) {
+let comparePassword = () => {
+    if (confirmPassword.value === typedPassword && passwordValid === true) {
         confirmPassword.validity.valid = true;
+    } else {
+        confirmPassword.validity.valid = false;
     }
-
 }
+
+confirmPassword.addEventListener("oninput", comparePassword);
 
 
