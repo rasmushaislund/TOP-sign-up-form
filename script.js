@@ -31,7 +31,7 @@ let passwordValid = false;
 // let passwordValid = false;
 
 
-// enable password confirmation
+// enable password confirmation field
 
 let enablePasswordConfirmation = () => {
     if (password.validity.valid === true) {
@@ -45,19 +45,56 @@ let enablePasswordConfirmation = () => {
     }
 }
 
-password.addEventListener("change", enablePasswordConfirmation);
+password.addEventListener("input", enablePasswordConfirmation);
 
 
-// password confirmation
+// initiate password confirmation feature incl. user error message
 
 let comparePassword = () => {
     if (confirmPassword.value === typedPassword && passwordValid === true) {
         confirmPassword.validity.valid = true;
     } else {
         confirmPassword.validity.valid = false;
+        errorConfirmPassword.textContent = "Passwords do not match"
+        errorConfirmPassword.style.color = "red"
+        if (confirmPassword.value === "") {
+            errorConfirmPassword.textContent = "";
+        }
     }
 }
 
-confirmPassword.addEventListener("oninput", comparePassword);
+confirmPassword.addEventListener("input", comparePassword);
+
+
+// error message for email input
+
+let showEmailError = () => {
+    if (email.validity.valid === true || email.value === "") {
+        errorEmail.textContent = "";
+    } else {
+        errorEmail.textContent = "Entered e-mail is not valid";
+        errorEmail.style.color = "red";
+    }
+}
+
+email.addEventListener("input", showEmailError);
+
+
+// error message for phone input
+
+let showPhoneError = () => {
+    if (phoneNumber.validity.valid === true || phoneNumber.value === "") {
+        errorPhone.textContent = "";
+    } else {
+        errorPhone.textContent = "Entered phone number is not valid";
+        errorPhone.style.color = "red";
+    }
+}
+
+phoneNumber.addEventListener("input", showPhoneError);
+
+
+
+// END ///////////////////////////////////////////////////////////////////
 
 
