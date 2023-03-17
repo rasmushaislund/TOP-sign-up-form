@@ -38,7 +38,7 @@
                     </li>
                     <li>
                         <label for="email">E-MAIL<span class="asterisk" aria-label="required">*</span></label>
-                        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-](.)+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+).*$" required>
+                        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-](.)+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+).*$" autocomplete="off" required>
                         <p class="error-help" id="error-email"></p>
                     </li>
                     <li>
@@ -48,12 +48,12 @@
                     </li>
                     <li>
                         <label for="password">PASSWORD<span class="asterisk" aria-label="required">*</span></label>
-                        <input type="password" id="password" name="password" minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$" required>
+                        <input type="password" id="password" name="password" minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$" autocomplete="new-password" required>
                         <p class="error-help" id="error-password"></p>
                     </li>
                     <li>
                         <label for="confirm-password">CONFIRM PASSWORD<span class="asterisk" aria-label="required">*</span></label>
-                        <input type="password" id="confirm-password" name="confirm_password" required disabled>
+                        <input type="password" id="confirm-password" name="confirm_password" autocomplete="off" required disabled>
                         <p class="error-help" id="error-confirm-password"></p>
                     </li>
                     <li>
