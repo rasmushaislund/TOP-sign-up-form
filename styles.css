@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     font-family: 'Fredoka', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
 }
 
 body {
@@ -9,8 +8,10 @@ body {
     background-attachment: fixed;
     background-size: cover;
     height: 100dvh;
+    width: 100dvw;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 }
 
 .para-author {
@@ -21,6 +22,7 @@ body {
 
 .github-link {
     font-family: 'Caveat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
     background: linear-gradient(90deg,
      rgba(214,123,3,1) 10%,
       rgba(214,141,3,1) 20%,
@@ -36,6 +38,17 @@ body {
               -webkit-text-fill-color: transparent;
 }
 
+.github-logo {
+    position: absolute;
+    left: 62px;
+    opacity: .7;
+    transition: transform .5s ease-in-out
+}
+
+.github-logo:hover {
+    transform: rotate(720deg);
+}
+
 p {
     margin: 0;
 }
@@ -48,10 +61,10 @@ sup {
     font-size: 1.5rem;
 }
 
-header {
+.header {
     background-color: rgba(0,0,0,.6);
     height: fit-content;
-    width: 100vw;
+    width: 100dvw;
     padding: 20px;
     margin: 75px 0 0 0;
     display: flex;
@@ -61,21 +74,27 @@ header {
 }
 
 .logo {
-    width: max(75px, 150px) ;
-    height: max(75px, 150px);
+    width: max(150px, 75px);
+    height: max(150px, 75px);
+}
+
+.company-name {
+    width: fit-content
 }
 
 .freedom {
     font-family: 'Fredoka One', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: clamp(2rem, 3rem, 4rem);
-    color: rgba(255, 255, 255, 1)
+    color: rgba(255, 255, 255, 1);
+    width: fit-content;
 }
 
 .travel {
     font-family: 'Fredoka', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 25vw, 3.5rem);
     font-weight: 700;
-    color: rgba(255, 255, 255, 1)
+    color: rgba(255, 255, 255, 1);
+    width: fit-content;
 }
 
 main {
