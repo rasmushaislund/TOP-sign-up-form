@@ -51,7 +51,22 @@
                     <li>
                         <label for="password">PASSWORD<span class="asterisk" aria-label="required">*</span></label>
                         <input type="password" id="password" name="password" title="Password must contain at least one uppercase letter (A-Z), one lowercase letter (a-z) and one number (0-9)" minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$" autocomplete="new-password" required>
-                        <p class="error-help" id="error-password-8char"><img class="password-help" src="./img/github-logo.svg" alt="logo"> testtesttesttest</p>
+                        <div class="error-psw" id="error-psw-8char">
+                            <img class="password-help-icon" src="./img/wrong-icon.svg" alt="logo">
+                            <p class="error-help" id="error-password-8char">Must contain at least 8 characters</p>
+                        </div>
+                        <div class="error-psw" id="error-psw-uppercase">
+                            <img class="password-help-icon" src="./img/wrong-icon.svg" alt="logo">
+                            <p class="error-help" id="error-password-uppercase">Must contain at least one uppercase letter (A-Z)</p>
+                        </div>
+                        <div class="error-psw" id="error-psw-lowercase">
+                            <img class="password-help-icon" src="./img/wrong-icon.svg" alt="logo">
+                            <p class="error-help" id="error-password-lowercase">Must contain at least one lowercase letter (a-z)</p>
+                        </div>
+                        <div class="error-psw" id="error-psw-number">
+                            <img class="password-help-icon" src="./img/wrong-icon.svg" alt="logo">
+                            <p class="error-help" id="error-password-number">Must contain at least one number</p>
+                        </div>
                     </li>
                     <li>
                         <label for="confirm-password">CONFIRM PASSWORD<span class="asterisk" aria-label="required">*</span></label>
