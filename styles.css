@@ -189,10 +189,26 @@ label, .error-help {
     margin-left: 2px;
 }
 
+.error-psw {
+    display: flex;
+    align-items: center;
+    margin: 2px 0 0 2px;
+    column-gap: 3px;
+}
+
+.password-help-icon {
+    height: 15px;
+    width: 15px
+}
+
 .error-help {
     color: red;
     font-weight: 100;
     height: 15px;
+}
+
+.error-psw > p {
+    color: rgba(0, 0, 0, .5)
 }
 
 .create-account {
