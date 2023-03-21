@@ -7,6 +7,7 @@ body {
     background-image: url("./img/ian-dooley-DuBNA1QMpPA-unsplash-largemodified.jpg");
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
     height: 100dvh;
     width: 100dvw;
     display: flex;
@@ -42,7 +43,7 @@ body {
     position: absolute;
     left: 62px;
     opacity: .7;
-    transition: transform .5s ease-in-out
+    transition: transform .4s ease-in-out
 }
 
 .github-logo:hover {
@@ -113,6 +114,7 @@ main {
     border-radius: 5px;
     min-width: 350px;
     max-width: 720px;
+    backdrop-filter: blur(3px);
 }
 
 h1 {
@@ -194,11 +196,12 @@ label, .error-help {
     align-items: center;
     margin: 2px 0 0 2px;
     column-gap: 3px;
+    visibility: hidden;
 }
 
 .password-help-icon {
     height: 15px;
-    width: 15px
+    width: 15px;
 }
 
 .error-help {
@@ -208,7 +211,7 @@ label, .error-help {
 }
 
 .error-psw > p {
-    color: rgba(0, 0, 0, .5)
+    color: rgba(0, 0, 0, .5);
 }
 
 .create-account {
