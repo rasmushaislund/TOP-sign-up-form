@@ -22,14 +22,40 @@ const errorPhone = document.querySelector("#error-phone");
 const errorPassword = document.querySelector("#error-password");
 const errorConfirmPassword = document.querySelector("#error-confirm-password");
 
+//password help
+
+const passwordRequirements = document.querySelectorAll(".error-psw")
+// const passwordIconHelp = document.querySelectorAll(".error-psw > img");
+// const passwordParaHelp = document.querySelectorAll(".error-psw > p");
+
 
 // NON-DOM VARIABLES
 
 
 let typedPassword;
 let passwordValid = false;
-// let passwordValid = false;
 
+
+// show password requirements
+
+let showPasswordRequirements = () => {
+    passwordRequirements.forEach(requirement => {
+        requirement.style.visibility = "visible"
+    })
+}
+
+password.addEventListener("focusin", showPasswordRequirements);
+
+
+// hide password requirements
+
+// let hidePasswordRequirements = () => {
+//     passwordRequirements.forEach(requirement => {
+//         requirement.style.visibility = "hidden"
+//     })
+// }
+
+// password.addEventListener("focusout", hidePasswordRequirements);
 
 // enable password confirmation field
 
