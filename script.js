@@ -33,37 +33,61 @@ const passwordUppercaseText = document.querySelector("#error-password-uppercase"
 const passwordLowercaseText = document.querySelector("#error-password-lowercase");
 const passwordNumberText = document.querySelector("#error-password-number");
 
+const showHidePasswordIcon = document.querySelector(".password-show-hide > img");
+const showHidePasswordContainer = document.querySelector(".password-show-hide");
+
 
 // NON-DOM VARIABLES
 let typedPassword = '';
 let passwordValid = false;
 const okIconPath = "./img/ok-icon.svg";
 const wrongIconPath = "./img/wrong-icon.svg";
+const hidePasswordIconPath = "./img/eye-off-outline.svg";
+const showPasswordIconPath = "./img/eye-outline.svg";
+
+
+// Toggle show/hide password icon
+let showHidePasswordToggle = () => {
+    if (password.type === "password") {
+        showHidePasswordIcon.src = hidePasswordIconPath;
+        password.type = "text";
+    } else {
+        showHidePasswordIcon.src = showPasswordIconPath;
+        password.type = "password";
+    }
+};
+
+showHidePasswordIcon.addEventListener("click", showHidePasswordToggle);
+
+// enable password toggle icon visibility and pointer-events upon input
+let enablePasswordEyeIcon = () => {
+    typedPassword = password.value;
+    if (typedPassword.length > 0) {
+        showHidePasswordIcon.style.visibility = "visible";
+        showHidePasswordContainer.style.pointerEvents = "auto";
+    } else {
+        showHidePasswordIcon.style.visibility = "hidden";
+        showHidePasswordContainer.style.pointerEvents = "none";
+    }
+};
+
+password.addEventListener("input", enablePasswordEyeIcon);
 
 
 // show password requirements
 let showPasswordRequirements = () => {
     passwordRequirements.forEach(requirement => {
-        requirement.style.visibility = "visible"
-    })
-}
+        requirement.style.visibility = "visible";
+    });
+};
 
 password.addEventListener("focusin", showPasswordRequirements);
 
 
-// hide password requirements
-let hidePasswordRequirements = () => {
-    passwordRequirements.forEach(requirement => {
-        requirement.style.visibility = "hidden";
-    })
-}
-
-password.addEventListener("focusout", hidePasswordRequirements);
-
 // enable password confirmation field
 let enablePasswordConfirmation = () => {
     if (password.validity.valid === true) {
-        typedPassword = password.value
+        typedPassword = password.value;
         passwordValid = true;
         confirmPassword.disabled = false;
         confirmPassword.pattern = typedPassword;
@@ -71,7 +95,7 @@ let enablePasswordConfirmation = () => {
         passwordValid = false;
         confirmPassword.disabled = true;
     }
-}
+};
 
 password.addEventListener("input", enablePasswordConfirmation);
 
@@ -79,22 +103,22 @@ password.addEventListener("input", enablePasswordConfirmation);
 // check if password contains minimum eight characters/digits
 let containsEightCharacters = (password) => {
     return password.length >= 8;
-}
+};
 
 // check if password contains uppercase letter(s)
 let containsUppercase = (password) => {
     return /[A-Z]/.test(password);
-}
+};
 
 // check if password contains lowercase letter(s)
 let containsLowercase = (password) => {
     return /[a-z]/.test(password);
-}
+};
 
 // check if password contains number(s)
 let containsNumber = (password) => {
     return /[0-9]/.test(password);
-}
+};
 
 
 // helping user to type valid password
@@ -131,7 +155,7 @@ let showValidPasswordRequirements = () => {
         passwordNumberText.style.color = "rgba(0, 0, 0, .5";
         passwordNumberIcon.src = wrongIconPath;
     }
-}
+};
 
 password.addEventListener("input", showValidPasswordRequirements);
 
@@ -143,13 +167,13 @@ let comparePassword = () => {
         errorConfirmPassword.textContent = "";
     } else {
         confirmPassword.validity.valid = false;
-        errorConfirmPassword.textContent = "Passwords do not match"
+        errorConfirmPassword.textContent = "Passwords do not match";
         errorConfirmPassword.style.color = "red"
         if (confirmPassword.value === "") {
             errorConfirmPassword.textContent = "";
         }
-    }
-}
+    };
+};
 
 confirmPassword.addEventListener("input", comparePassword);
 
@@ -162,7 +186,7 @@ let showEmailError = () => {
         errorEmail.textContent = "Entered e-mail is not valid";
         errorEmail.style.color = "red";
     }
-}
+};
 
 email.addEventListener("input", showEmailError);
 
@@ -175,7 +199,7 @@ let showPhoneError = () => {
         errorPhone.textContent = "Entered phone number is not valid";
         errorPhone.style.color = "red";
     }
-}
+};
 
 phoneNumber.addEventListener("input", showPhoneError);
 
