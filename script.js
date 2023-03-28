@@ -2,8 +2,7 @@
 
 
 // DOM VARIABLES
-
-//input fields
+// input fields
 const firstName = document.querySelector("#first-name");
 const lastName = document.querySelector("last-name");
 const email = document.querySelector("#email");
@@ -13,7 +12,7 @@ const confirmPassword = document.querySelector("#confirm-password");
 
 const inputFields = document.querySelectorAll("input");
 
-//error messages
+// error messages
 const errorFirstName = document.querySelector("#error-first-name");
 const errorLastName = document.querySelector("#error-last-name");
 const errorEmail = document.querySelector("#error-email");
@@ -21,7 +20,7 @@ const errorPhone = document.querySelector("#error-phone");
 const errorPassword = document.querySelector("#error-password");
 const errorConfirmPassword = document.querySelector("#error-confirm-password");
 
-//password help
+// password help
 const passwordRequirements = document.querySelectorAll(".error-psw");
 
 const password8charIcon = document.querySelector("#icon-8char");
@@ -36,16 +35,13 @@ const passwordNumberText = document.querySelector("#error-password-number");
 
 
 // NON-DOM VARIABLES
-
-
-let typedPassword;
+let typedPassword = '';
 let passwordValid = false;
-let okIconPath = "./img/ok-icon.svg";
-let wrongIconPath = "./img/wrong-icon.svg";
+const okIconPath = "./img/ok-icon.svg";
+const wrongIconPath = "./img/wrong-icon.svg";
 
 
 // show password requirements
-
 let showPasswordRequirements = () => {
     passwordRequirements.forEach(requirement => {
         requirement.style.visibility = "visible"
@@ -56,17 +52,15 @@ password.addEventListener("focusin", showPasswordRequirements);
 
 
 // hide password requirements
+let hidePasswordRequirements = () => {
+    passwordRequirements.forEach(requirement => {
+        requirement.style.visibility = "hidden";
+    })
+}
 
-// let hidePasswordRequirements = () => {
-//     passwordRequirements.forEach(requirement => {
-//         requirement.style.visibility = "hidden"
-//     })
-// }
-
-// password.addEventListener("focusout", hidePasswordRequirements);
+password.addEventListener("focusout", hidePasswordRequirements);
 
 // enable password confirmation field
-
 let enablePasswordConfirmation = () => {
     if (password.validity.valid === true) {
         typedPassword = password.value
@@ -82,15 +76,60 @@ let enablePasswordConfirmation = () => {
 password.addEventListener("input", enablePasswordConfirmation);
 
 
-// helping user to type valid password
+// check if password contains minimum eight characters/digits
+let containsEightCharacters = (password) => {
+    return password.length >= 8;
+}
 
+// check if password contains uppercase letter(s)
+let containsUppercase = (password) => {
+    return /[A-Z]/.test(password);
+}
+
+// check if password contains lowercase letter(s)
+let containsLowercase = (password) => {
+    return /[a-z]/.test(password);
+}
+
+// check if password contains number(s)
+let containsNumber = (password) => {
+    return /[0-9]/.test(password);
+}
+
+
+// helping user to type valid password
 let showValidPasswordRequirements = () => {
-    if (password.value.length >= 8) {
+    typedPassword = password.value;
+    if (containsEightCharacters(typedPassword)) {
         password8charText.style.color = "black";
         password8charIcon.src = okIconPath;
     } else {
         password8charText.style.color = "rgba(0, 0, 0, .5";
         password8charIcon.src = wrongIconPath;
+    }
+
+    if (containsUppercase(typedPassword)) {
+        passwordUppercaseText.style.color = "black";
+        passwordUppercaseIcon.src = okIconPath;
+    } else {
+        passwordUppercaseText.style.color = "rgba(0, 0, 0, .5";
+        passwordUppercaseIcon.src = wrongIconPath;
+    }
+
+    if (containsLowercase(typedPassword)) {
+        passwordLowercaseText.style.color = "black";
+        passwordLowercaseIcon.src = okIconPath;
+    } else {
+        passwordLowercaseText.style.color = "rgba(0, 0, 0, .5";
+        passwordLowercaseIcon.src = wrongIconPath;
+    }
+
+    if (containsNumber(typedPassword)) {
+        passwordNumberText.style.color = "black";
+        passwordNumberIcon.src = okIconPath;
+    } else {
+        passwordNumberText.style.color = "rgba(0, 0, 0, .5";
+        passwordNumberIcon.src = wrongIconPath;
     }
 }
 
@@ -98,7 +137,6 @@ password.addEventListener("input", showValidPasswordRequirements);
 
 
 // initiate password confirmation feature incl. user error message
-
 let comparePassword = () => {
     if (confirmPassword.value === typedPassword && passwordValid === true) {
         confirmPassword.validity.valid = true;
@@ -117,7 +155,6 @@ confirmPassword.addEventListener("input", comparePassword);
 
 
 // error message for email input
-
 let showEmailError = () => {
     if (email.validity.valid === true || email.value === "") {
         errorEmail.textContent = "";
@@ -131,7 +168,6 @@ email.addEventListener("input", showEmailError);
 
 
 // error message for phone input
-
 let showPhoneError = () => {
     if (phoneNumber.validity.valid === true || phoneNumber.value === "") {
         errorPhone.textContent = "";
