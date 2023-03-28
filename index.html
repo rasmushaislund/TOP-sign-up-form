@@ -50,7 +50,10 @@
                     </li>
                     <li>
                         <label for="password">PASSWORD<span class="asterisk" aria-label="required">*</span></label>
-                        <input type="password" id="password" name="password" minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$" autocomplete="new-password" required>
+                        <div class="psw">
+                            <input type="password" id="password" name="password" minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$" autocomplete="new-password" required>
+                            <i class="password-show-hide"><img src="./img/eye-outline.svg" alt="eye icon to show or hide password"></i>
+                        </div>
                         <div class="error-psw" id="error-psw-8char">
                             <img class="password-help-icon" id="icon-8char" src="./img/wrong-icon.svg" alt="logo">
                             <p class="error-help" id="error-password-8char">At least eight characters</p>
@@ -83,7 +86,7 @@
     </main>
     <footer>
         <p>Icons by <a href="https://freeicons.io/profile/3">icon king1</a> on <a href="https://freeicons.io">freeicons.io</a></p>
-        <p>Icon by <a class="link_pro" href="https://freeicons.io/office-and-workstation-icons-6/ok-icon-18961">Free Preloaders</a>on <a href="https://freeicons.io">freeicons.io</a></p>
+        <p>Icon by <a class="link_pro" href="https://freeicons.io/office-and-workstation-icons-6/ok-icon-18961">Free Preloaders</a> on <a href="https://freeicons.io">freeicons.io</a></p>
         <p>Photo by <a href="https://unsplash.com/it/@sadswim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ian Dooley</a> on <a href="https://unsplash.com/photos/DuBNA1QMpPA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
     </footer>
     
