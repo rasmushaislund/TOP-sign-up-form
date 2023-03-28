@@ -15,10 +15,31 @@ body {
     margin: 0 auto;
 }
 
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .para-author {
     font-family: 'Caveat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     margin-top: 10px;
+}
+
+.para-author a {
+    font-weight: 100;
 }
 
 .github-link {
@@ -48,14 +69,6 @@ body {
 
 .github-logo:hover {
     transform: rotate(720deg);
-}
-
-p {
-    margin: 0;
-}
-
-a {
-    text-decoration: none;
 }
 
 sup {
@@ -105,6 +118,10 @@ main {
     padding: 0 20px;
 }
 
+p span {
+    font-weight: 700;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
@@ -123,13 +140,12 @@ h1 {
 
 .mandatory {
     margin: 0 auto 10px 0;
-
+    font-size: .8rem;
 }
 
 .asterisk {
     font-family: 'Playfair Display', 'Fredoka', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.25rem;
-    font-weight: 700;
     background: linear-gradient(90deg,
      rgba(214,123,3,1) 10%,
       rgba(214,141,3,1) 20%,
@@ -168,6 +184,23 @@ input {
     margin-bottom: 0px;
     border-radius: 5px;
     border: 2px solid rgb(228, 233, 224)
+}
+
+.psw {
+    position: relative;
+}
+
+.password-show-hide img {
+    height: 20px;
+    visibility: hidden;
+}
+
+.password-show-hide {
+    position: absolute;
+    left: 80%;
+    bottom: 8%;
+    cursor: pointer;
+    pointer-events: none;
 }
 
 input, label {
@@ -239,10 +272,6 @@ label, .error-help {
 
 .log-in {
     font-weight: 700;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 footer {
